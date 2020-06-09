@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+
+<style>
+
+ul{
+    list-style-type: none;
+}
+#calendriermedecinsbundle_patient{
+    font-size: 18px;
+    line-height: 18px;
+    color: #343434;
+    box-sizing: border-box;
+    border: 1px solid #d1d1d1;
+    background: #fff;
+    padding: 30px 40px;
+    margin-bottom: 20px;
+    border-radius: 2px;
+    display: inline-block;
+    width: 35% 
+}
+
+#calendriermedecinsbundle_patient input{
+    margin: 10px;
+    display: grid;
+}
+
+select{
+    margin: 10px;
+}
+.edit{
+    position: relative;
+    top: 98px;
+    right: 350px;
+}
+</style>
+<div>
+    <h1>Edit Patient </h1>
+
+    {{ form_start(edit_form) }}
+    {{ form_widget(edit_form) }}
+    <button class="edit" type="submit">Edit</button> 
+    {{ form_end(edit_form) }}
+
+    <ul>
+        <li>
+            {{ form_start(delete_form) }}
+                <button type="submit">Delete</button> 
+            {{ form_end(delete_form) }}
+        </li>
+        <li>
+            <a href="{{ path('patient_index') }}">Back</a>
+        </li>
+        
+    </ul>
+{% endblock content%}

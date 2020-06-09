@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+<style>
+    ul{
+        list-style-type: none;
+    }
+button{
+    position: relative;
+    left: -40px;
+    bottom: 20px;
+}
+li{
+    margin: 2rem;
+}
+</style>
+<div>
+    <h1>Doctor</h1>
+
+    <table border="3px">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ medecin.id }}</td>
+            </tr>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ medecin.libelle }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ medecin.code }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+       
+        <li>
+            {{ form_start(delete_form) }}
+                <button type="submit">  Delete</button>
+            {{ form_end(delete_form) }}
+        </li>
+
+        <li>
+            <a  href="{{ path('medecin_edit', { 'id': medecin.id }) }}">Edit</a>
+        </li>
+        
+        <li>
+            <a  href="{{ path('medecin_index') }}">Back</a>
+        </li>
+    </ul>
+{% endblock content%}

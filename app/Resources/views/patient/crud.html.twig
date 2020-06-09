@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+ <div class="container">
+    <h1>Patients Mangment:</h1>
+    <br>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>LastName</th>
+                <th>FirstName</th>
+                <th>Date</th>
+                <th>Hour</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for patient in patients %}
+            <tr>
+                <td><a href="{{ path('patient_show', { 'id': patient.id }) }}">{{ patient.id }}</a></td>
+                <td>{{ patient.nom }}</td>
+                <td>{{ patient.prenom }}</td>
+                <td>{% if patient.datee %}{{ patient.datee|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ patient.heure }}</td>
+                <td>
+                    <ul>     
+                            <a  href="{{ path('patient_show', { 'id': patient.id }) }}">Details</a>
+                        
+                            <a  href="{{ path('patient_edit', { 'id': patient.id }) }}">Edit</a>
+
+                            <a href="{{ path('patient_delete', { 'id': patient.id }) }}">Delete</a>
+                    
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+            <a  href="{{ path('patient_new') }}">Add Patient</a>
+        
+{% endblock content%}

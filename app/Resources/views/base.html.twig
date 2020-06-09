@@ -1,0 +1,45 @@
+<style>
+    body{
+        margin: 5px;
+        padding: 0px 50px 0 50px;
+        overflow: auto;
+        overflow-x: hidden;    
+        
+    }
+.myul{
+    
+    list-style-type: none;
+    transform: translate(30%);
+    
+}
+.myul li{
+    display: inline;
+    margin: 3px;
+
+}    
+
+</style>
+<body>
+    <ul class="myul">
+        <li>
+            <a href={{path('patient_index')}}>Patients</a>
+        </li>
+        <li>
+            <a href={{path('patient_cons')}}>Manage Patient</a>
+        </li>
+        <li>
+            <a href={{path('patient_new')}}>Add Patient</a>
+        </li>
+        <li>
+
+            <a href={{path('medecin_index')}}>Doctors</a>
+        </li>
+        </li>
+        <li>
+            <a href={{path('medecin_new')}}>Add Doctor</a>
+        </li>
+    </ul>
+    <hr>
+    {% block  content %}{% endblock content%}
+
+</body>

@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+<style>
+ul{
+list-style-type: none;
+
+}
+li{
+    margin: 10px;
+}
+</style>
+    <h1>Patient</h1>
+<hr>
+    <table border="3px" >
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ patient.id }}</td>
+            </tr>
+            <tr>
+                <th>LastName</th>
+                <td>{{ patient.nom }}</td>
+            </tr>
+            <tr>
+                <th>FirstName</th>
+                <td>{{ patient.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{% if patient.datee %}{{ patient.datee|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Hour</th>
+                <td>{{ patient.heure }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('patient_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('patient_edit', { 'id': patient.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <button type="submit">Delete</button> 
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock content %}

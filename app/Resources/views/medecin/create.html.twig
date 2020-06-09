@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+
+<style>
+#calendriermedecinsbundle_medecin{
+    font-size: 18px;
+    line-height: 18px;
+    color: #343434;
+    box-sizing: border-box;
+    border: 1px solid #d1d1d1;
+    background: #fff;
+    padding: 30px 40px;
+    margin-bottom: 20px;
+    border-radius: 2px;
+    display: inline-block;
+    width: 35%
+}
+
+#calendriermedecinsbundle_medecin input{
+    margin: 10px;
+}
+
+#calendriermedecinsbundle_medecin_code{
+    position: relative;
+    left: 12px;
+}
+
+button{
+    position: relative;
+    top: 30px;
+    right: 320px;
+}
+
+</style>
+<div>
+    <h1>Medecin creation</h1>
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button type="submit">Create</button>
+    {{ form_end(form) }}
+    <br>
+    <a class="btn btn-outline-primary btn-lg" href="{{ path('medecin_index') }}">Back </a>
+
+</div>
+{% endblock content %}

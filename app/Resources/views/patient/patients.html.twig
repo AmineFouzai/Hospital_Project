@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+<style>
+#recherche_patient_form{
+    font-size: 18px;
+    line-height: 18px;
+    color: #343434;
+    box-sizing: border-box;
+    border: 1px solid #d1d1d1;
+    background: #fff;
+    padding: 30px 40px;
+    margin-bottom: 20px;
+    border-radius: 2px;
+    display: inline-block;
+    width: 35%
+}
+button{
+    position: relative;
+    right: 280px;
+    top: 25px;
+    width: 100px;
+}
+#recherche_patient_form_nom{
+position: relative;
+left: -7px;
+margin: 10px;
+}
+</style>
+<div>
+    <h1>Patients:</h1>
+   
+    <div>
+        {{form_start(form )}}
+        {{form_widget(form)}}
+        <button type="submit">seek</button>
+        {{form_end(form)  }}
+        <hr>
+        <div>
+            {% for patient in patients %}   
+                        <h4 >{{ patient.nom }} {{ patient.prenom }}</h4>
+                        <ul>
+                            <li>Id:{{ patient.id }}</li>
+                            <li>Date:{{ patient.datee|date('Y-m-d') }}</li>
+                            <li>Hour:{{ patient.heure }}</li>
+                            <li>Doctor:{{ patient.Medecin }}</li>
+                        </ul>
+                   
+        </div>
+        
+{% endfor %}
+{% endblock content %}

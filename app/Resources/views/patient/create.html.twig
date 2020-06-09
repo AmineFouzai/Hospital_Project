@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+<style>
+#calendriermedecinsbundle_patient{
+    
+            font-size: 18px;
+            line-height: 18px;
+            color: #343434;
+            box-sizing: border-box;
+            border: 1px solid #d1d1d1;
+            background: #fff;
+            padding: 30px 40px;
+            margin-bottom: 20px;
+            border-radius: 2px;
+            display: inline-block;
+            margin-left: 50%;
+            margin-right: -50%;
+            transform: translate(-50%, 0);
+            width: 35%;
+           
+        }
+
+input{
+   display: grid;
+   margin: 1rem;
+
+}
+select{
+   margin: 12px;
+
+}
+</style>
+<div>
+    <h1>Create Patient: </h1>
+    <hr>
+    <div>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button>Create</button> 
+        {{ form_end(form) }}
+    </div>
+    <ul>
+        <a href="{{ path('patient_index') }}">Back</a>
+    </ul>
+</div>
+{% endblock content %}
